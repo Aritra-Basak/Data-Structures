@@ -1,5 +1,5 @@
 package technical;
-//Rotated Binary Search with Recursion.......
+//Rotated Binary Search Using Recursion.......
 import java.util.*;
 public class RBC {
 	static int search(int [] ar,int target, int s,int e)
@@ -7,8 +7,10 @@ public class RBC {
 	if(s>e)
 		return -1;//the element is not found
 	int mid=s+(e-s)/2;
+	
 	if(ar[mid]==target)
 		return mid;
+	
 	if(ar[s]<=ar[mid])//the first half or the left part is sorted 
 	{
 		if(target>=ar[s] && target<=ar[mid])
@@ -16,10 +18,13 @@ public class RBC {
 		else
 			return search(ar,target,mid+1,e);
 	}
-    if(target>=ar[mid] && target<=ar[e])
+	
+    if(target>=ar[mid] && target<=ar[e])//if the element lies in the r.h.s of the element and the l.h.s is sorted then this will be triggered.
 	{
     	return search(ar,target,mid+1,e);
 	}
+    
+    else
         return search(ar,target,s,mid-1);
 
 	}
@@ -28,6 +33,7 @@ public class RBC {
 	{
 		Scanner sc = new Scanner(System.in);
 		int [] ar= {5,6,7,8,9,1,2,3};
+		System.out.println(Arrays.toString(ar));
 		System.out.println("Enter the target element");
 		int target=sc.nextInt();
 		System.out.println(search(ar,target,0,ar.length-1));
