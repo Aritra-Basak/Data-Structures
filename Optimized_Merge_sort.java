@@ -46,7 +46,11 @@ public class Optimal {
 		//moving all the elements in the main array by parts
 		for(int l=0;l<ultimate.length;l++)
 		{
-			ar[s+l]=ultimate[l];
+			ar[s+l]=ultimate[l];//so that the array at that particular index or part picked from the original gets sorted in the original itself.
+			//like in the ultimate array we have sorted [1,4] and original has [4,1] at index 0 and 1 position respectively. NOw we will update the original array in the sorted manner for these 2 elements at this time .
+			//so now s=0, as it has started pointing from 0 at the original array, s will change on basis of pointing the starting element from the original array part which got sorted in the ultimate array due to recursion call.
+			//so ar[s+l] means at ar[0+0] the element will be ultimate[0], then at ar[0+1] the element will be from ultimate[1].
+			//now for a different part s will be different.
 		}
 	}
 
