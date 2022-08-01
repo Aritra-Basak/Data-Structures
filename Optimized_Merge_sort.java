@@ -9,8 +9,8 @@ public class Optimal {
 			return ;
 		}
 		int mid=(e+s)/2;
-		mergeSort(ar, s, mid);
-		mergeSort(ar, mid,e);
+		mergeSort(ar, s, mid);//for left part of the array
+		mergeSort(ar, mid,e);//for right part of the array
 		merging(ar,s,mid,e);//calling the merge function to sort the array in 2 parts and merge them at the last.
 	}
 	static void merging(int [] ar, int s,int mid, int e)
