@@ -11,10 +11,13 @@ public class MazeRunner {
 				System.out.println(p);
 				return;
 			}
+			//if we are allowed to go diagonally 
+			//if(r>1 && c>1)
+			//maze_permutation(p+'D',r-1,c-1);
 			if (r>1)//when row is greater than 1 that means we have to move Right and we will decrease the no. of row by -1
-				maze_permutation(p+'R',r-1,c);
+				maze_permutation(p+'H',r-1,c);
 			if(c>1)//when column is greater than 1 that means we have to move Down and we will decrease the no. of column by -1
-				maze_permutation(p+'D',r,c-1);
+				maze_permutation(p+'V',r,c-1);
 		}
 		//returning in an ArrayList
 		static int maze(int r, int c)
@@ -27,6 +30,25 @@ public class MazeRunner {
 			int down=maze(r,c-1);//for moving down we will just subtract 1 from column
 			return right+down;
 		}
+		//returning the path in the ArrayList
+		static ArrayList <String> maze_list(String p, int r, int c)
+		{
+			if(r==1 && c==1)//when the row or and column both hit 1 that means we have reached the end point so we need to return the answer
+			{
+				ArrayList <String> list=new ArrayList<>();
+				list.add(p);
+				return list;
+			}
+			ArrayList <String> local=new ArrayList<>();
+			//if we are allowed to go diagonally 
+			//if(r>1 && c>1)
+			//local.addAll(maze_permutation(p+'D',r-1,c-1));
+			if (r>1)//when row is greater than 1 that means we have to move Right and we will decrease the no. of row by -1
+				local.addAll(maze_list(p+'H',r-1,c));
+			if(c>1)//when column is greater than 1 that means we have to move Down and we will decrease the no. of column by -1
+				local.addAll(maze_list(p+'V',r,c-1));
+			return local;
+		}
 		
 		public static void main(String[] args) 
 		{
@@ -38,6 +60,7 @@ public class MazeRunner {
 			System.out.println(maze(row,column));
 			System.out.println("The paths that can be followed in terms of Right and Down are:-");
 			maze_permutation("",row,column);
-	       
+	       System.out.println("In Form of ArrayList");
+	       System.out.println(maze_list(" ",row,column));
 		}
 	}
