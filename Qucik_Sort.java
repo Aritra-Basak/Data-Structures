@@ -2,6 +2,7 @@
 package technicals;
 import java.util.*;
 public class Main {
+	//here we are neither returning any value nor printing anything because we are using object references to change the real object i.e. the arrays.
 	static void sort(int [] ar, int low , int high)
 	{
 		if(low>=high)//base case , when the low pointer index gets higher than higher.
