@@ -1,5 +1,6 @@
 package technical;
 import java.util.*;
+
 public class CustomizedList <T> //passing the requested generic type as T
 {
 	 private Object[] data;
@@ -9,7 +10,8 @@ public class CustomizedList <T> //passing the requested generic type as T
 	 //creating an array of length DEFAULT_SIZE
 public CustomizedList() 
 	{
-		data = new Object[DEFAULT_SIZE]; 
+		data = new Object[DEFAULT_SIZE];//We can’t create an instance of generic type because during the run time the byte code cannot figure out the generic’s type
+		//So we are using Object which is the top most class and every classes are child classes of Object Class. So instead Of converting JVM just inherit the property of the given data type.
 	}
 
 //adding the elements in the list
@@ -43,15 +45,15 @@ public CustomizedList()
  //method for removing an element of desired position
  public void remove(int index)
  {
-	 T removed =(T)(data[index]);
+	 T removed =(T) (data[index]);//We are removing an element of type T not of Object so we need to typecast it
 	 data[index]=null;
 	 System.out.println("Removed element is "+removed);
  }
  
  //returning the data of the given index
- public T get (int index)
+ public void get (int index)
  {
-	 return (T)data[index];
+	 System.out.println(data[index]);
  }
  
  //returning the size of the Arraylist
@@ -64,6 +66,7 @@ public CustomizedList()
 			 count++;
 	 }
 	 System.out.println("Size is: "+count);
+	 
  }
  
  //setting the given value in the index
@@ -72,12 +75,13 @@ public CustomizedList()
 	 data[index] = value;
  }
  
+ //we are overriding the toString method and creating of our own.
  @Override
  public String toString()
  {
-	 return "CustomizedList{" + 
+	 return "CustomizedList: \n{\n" + 
  "data =" + Arrays.toString(data) +
- "}";
+ "\n}";
  }
 	public static void main(String[] args) {
 		CustomizedList<Integer> list = new CustomizedList<>();
@@ -95,10 +99,7 @@ public CustomizedList()
 		list2.add("is");
 		list2.add("Aritra");
 		System.out.println(list2);
-		
-      
-		
-
+		list2.get(3);
 	}
 
 }
