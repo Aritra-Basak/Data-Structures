@@ -21,13 +21,13 @@ public class Back_Tracking {
 		// when the recursion block starts we will make that cell of the matrix false
 		maze[r][c]=false;
 		if(r<maze.length-1)
-			run(p+'H',maze,r+1,c);//moving horizontally right
+			run(p+"Down ",maze,r+1,c);//moving Vertically Down
 		if(c<maze[0].length-1)
-			run(p+'V',maze,r,c+1);//moving vertically down
+			run(p+"Right ",maze,r,c+1);//moving Horizontally Right
 		if(c>0)
-			run(p+'U',maze,r,c-1);//moving vertically up
+			run(p+"Left ",maze,r,c-1);//moving Horizontally Left
 		if(r>0)
-			run(p+'L',maze,r-1,c);//moving horizontally left
+			run(p+"Up ",maze,r-1,c);//moving Vertically up
 		//Recursion Block Ends
 		//So before the function gets removed or ends we have to all the changes made while starting/calling the function
 		maze[r][c]=true;
