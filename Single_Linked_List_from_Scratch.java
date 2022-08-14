@@ -1,6 +1,6 @@
 package technicals;
 import java.util.*;
-//class containing details about the linked list
+//class containing details about the single linked list
 class Linked
 {
 	//nested class containing info about an individual node of the list and used to create a node with a value .
@@ -64,7 +64,7 @@ class Linked
  //inserting a node at desired position
  public void insert(int value , int pos)
  {
-	 try {
+	 try { //we can also just throw the exception and don't need to catch it.
 	 if(pos==0)
 	 {
 		 insertFirst(value);
@@ -84,7 +84,7 @@ class Linked
 		 {
 			 temp=temp.next;//traversing till before the given position so we can add the node at that position.
 		 }
-		 Node node = new Node(value,temp.next);//creating the node and passing the next info
+		 Node node = new Node(value,temp.next);//creating the node and passing the next info so that the newly created node point to the temp.next node
 		 temp.next=node;//the node which was being pointed by temp now it's next will be the newly created node.
 		 size++;
 	 }
@@ -163,7 +163,7 @@ class Linked
  }
  
  //getting the node of that has the particular value
-	 public int get(int index)
+ public int get(int index)
 	 {
 		 Node node =head;
 		 for(int i =1;i<=index;i++)
