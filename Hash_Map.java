@@ -1,64 +1,58 @@
-//Hash Table is class which implements Hash Table and it is a part of Java Collection Framework
-//Hash Table stores key/value pair in hash table.
-//In Hash Table we specify an object that is used as a key, and the value we want to associate to that key. 
-//The key is then hashed, and the resulting hash code is used as the index at which the value is stored within the table.
-//Hash Table is Synchronized
-//In Hash Table we can neither store null in key nor in value.
-//We can't repeat keys they must be unique but the values can be repeated.
+//Hash Map can have one Null key and multiple Null values.
+//Hash Map is A-synchronized
+//The elements/values are stored in a random way
 
 package placements;
 import java.util.*;
-public class Hash_Table {
+public class Hash_Map {
 
-	public static void main(String args[])
-    {
-        // No need to mention the
-        // Generic type twice
-        Hashtable<Integer, String> ht1 = new Hashtable<>();
+	public static void main(String[] args) {
+		
+		 // Create an empty hash map by declaring object
+        // of string and integer type
+        HashMap<String, Integer> map = new HashMap<>();
   
-        // Inserting the Elements
-        // using put() method
-        ht1.put(1, "one");
-        ht1.put(2, "two");
-        ht1.put(3, "three");
-        ht1.put(4, "four");
+        // Adding elements to the Map
+        // using standard put() method
+        map.put("vishal", 10);//(key,value)
+        map.put("sachin", 30);
+        map.put("vaibhav", 20);
   
-   
+        // Print size of the Map
+        System.out.println("Size of map is:- "
+                           + map.size());
   
-        // Print mappings to the console
-        System.out.println("Mappings of ht1 : " + ht1);
-        
-        //getting value from table using .get() method
-        String value = ht1.get(1);
-        System.out.println(value);
-        
-       
-        
-        Iterator<Integer> itr=ht1.keySet().iterator(); //we are using the Iterator to iterate or traverse inside the HashTable
-         //Iterator< Key's Data type' Wrapper Class> itr =ht1.keySet().iterator();
-        //we are using keys to help us with key iteration
-       //The keySet() method is used to get a Set view of the keys contained in this Hashtable.
-      //getting all the key values and set an iterate for iterating over the fetched key set
-     
-        System.out.println("The keys in the Hash Table are: "+ht1.keySet());
-        
-        while(itr.hasNext())//this hasNext() will check if there is any element present in the next set or not.
-        {
-        	Integer key =itr.next(); // the itr start with a null then with .next() it fetch the next key from the set.
-        	System.out.println("Key: "+ key + ", Value: "+ht1.get(key));
+        // Printing elements in object of Map
+        System.out.println(map);
+  
+        // Checking if a key is present and if
+        // present, print value by passing
+        // random element
+        if (map.containsKey("vishal")) {
+  
+            // Mapping
+            Integer a = map.get("vishal");
+  
+            // Printing value for the corresponding key
+            System.out.println("value for key"
+                               + " \"vishal\" is:- " + a);
         }
+        map.put("sachin", 15);//if we insert a value with a duplicate key then the key value will be updated to the latest value.
+        System.out.println(map);
         
-        //removing with a key value using .remove() method
-        ht1.remove(3);
-        System.out.println(ht1);
+        HashMap<String, Integer> map2 = new HashMap<>(map); //we are creating another Hash Map with all the values of map just by passing map's object reference
+                                                           //we are just performing cloning.
+        System.out.println("Hash Map 2");
+        System.out.println(map2);
         
-        //adding a value in the key 3
-        ht1.put(3, "New");
-        System.out.println(ht1);
-       
-        //changing the value in the key 3
-        ht1.replace(3, "Three");
-        System.out.println(ht1);
+       //iterating through the hash map
         
+        System.out.println("While Iterating");
+        Iterator <String> itr = map.keySet().iterator(); //getting all the key values and set an iterate for iterating over the fetched key set
+        while(itr.hasNext())
+        {
+        	String key = itr.next(); // the itr start with a null then with .next() it fetch the next key from the set.
+        	System.out.println("The value of key: "+ key+ " is: "+map.get(key));
+        }
     }
 }
