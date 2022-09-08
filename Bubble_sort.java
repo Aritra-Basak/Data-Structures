@@ -3,7 +3,8 @@ import java.util.*;
 public class Sorting {
  static void bubble(int arr[])
  {
-	 for(int i =0;i<arr.length-1;i++)//We iterate the outer loop less than n-1 time because the samllest element in the array gets sorted automatically, so we don’t need to iterate for it.
+	 int count =0;
+	 for(int i =0;i<arr.length-1;i++)//We iterate the outer loop less than n-1 time because the smallest element in the array gets sorted automatically, so we don’t need to iterate for it.
 	 {
 		 boolean swap=false;
 		 for(int j =0;j<(arr.length-i-1);j++)// We are iterating less than n-i cause in every iteration the largest element gets sorted to its
@@ -16,12 +17,14 @@ public class Sorting {
 				 arr[j+1]=arr[j]-arr[j+1];
 				 arr[j]=arr[j]-arr[j+1];
 				 swap=true;
+				 count ++;
 			 }
 			 
 		 }
 		 if(swap==false)// if swap == false that means there was no swapping required in the earlier step so array is sorted it breaks and prints saving or reducing the time complexity
 			 break;
 	 }
+	 System.out.println("Number of swaps required to make it sorted: "+count);
 	 System.out.println(Arrays.toString(arr));
  }
 	public static void main(String[] args) {
