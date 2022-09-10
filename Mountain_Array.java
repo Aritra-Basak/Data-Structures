@@ -5,7 +5,7 @@ public class Mountain {
 	static int search(int [] ar)
 	{
 		int start=0,end=ar.length-1;
-		while(start<end) // we are not giving the condition <= cause at the end, start will be = end and that time we will get the ans.
+		while(start<end) // we are not giving the condition <= because at the end, start will be = end and that time we will get the ans.
 		{
 			int mid=start+(end-start)/2;
 			if(ar[mid]<ar[mid+1]) //we are in the ascending part of the array
