@@ -1,5 +1,16 @@
+
+/*In java HashMap internally uses hashcode() to check which bucket the object should go the hashcode() value = the bucket number. [The bucket is storage for the object/values in HashMap for java]
+ * Hash Collision is a certain state when more than one objects have the same hashcode() value and hence ends up in the same bucket. This creates a list of objects in the bucket and creates a collision of objects and the traversal of the objects also becomes non-efficient.
+ * To prevent Hash Collision we use LinkedHashMap<>();
+
+
+*/
 //The LinkedHashMap Class is just like HashMap with an additional feature of maintaining an order of elements inserted into it.
-//It contains only unique elements.
+//It contains only unique keys, because if a key repeats then last occurring similar key will be selected and it will have it's respective value.
+//like :      lhm.put("one", "New York");
+	       // lhm.put("two", "Iceland");
+	       // lhm.put("one", "Tokyo");
+// so the value of key "one" will be Tokyo not New York.
 //It may have one null key and multiple null values.
 //It is non-synchronized.
 
@@ -11,7 +22,7 @@ public class L_Hash_Map {
 	    {
 	 
 	        // Creating an empty LinkedHashMap
-	        LinkedHashMap<String, String> lhm = new LinkedHashMap<String, String>();
+	        LinkedHashMap<String, String> lhm = new LinkedHashMap<String, String>(); // we can also use  LinkedHashMap<String, String> lhm = new LinkedHashMap<>();
 	 
 	        // Adding entries in Map
 	        // using put() method
@@ -19,6 +30,7 @@ public class L_Hash_Map {
 	        lhm.put("two", "Iceland");
 	        lhm.put("three", "Tokyo");
 	        lhm.put("four", "Italy");
+	        lhm.put("five", "Tokyo");
 	 
 	        // Printing all entries inside Map
 	        System.out.println(lhm);
