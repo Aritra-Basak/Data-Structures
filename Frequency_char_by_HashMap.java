@@ -16,7 +16,7 @@ public class Frequency {
  
                 // If char is present in list already or not,
                 // incrementing it's count by 1
-                list.put(c, list.get(c) + 1);
+                list.put(c, list.get(c) + 1); //taking the value with respective to key and then incrementing it by 1
             }
             else {
  
