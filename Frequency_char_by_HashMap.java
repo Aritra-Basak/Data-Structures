@@ -5,7 +5,9 @@ public class Frequency {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the string");
-		String st = sc.next();
+		String stl = sc.next();
+		String st= stl.toLowerCase(); //converting every character to lower case. So the program doesn't face case discrimination
+
 		char [] ch = st.toCharArray();
 		LinkedHashMap<Character, Integer> list = new LinkedHashMap<>();
 		// checking each char of strArray
