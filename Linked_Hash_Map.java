@@ -1,5 +1,5 @@
 
-/*In java HashMap internally uses hashcode() to check(by calculating a certain value from key) which bucket the object should go the hashcode() value = the bucket number. [The bucket is storage for the object/values in HashMap for java]
+/*In java HashMap internally uses hashcode() to check which bucket the object should go the hashcode() value = the bucket number. [The bucket is storage for the object/values in HashMap for java]
  * Hash Collision is a certain state when more than one objects have the same hashcode() value and hence ends up in the same bucket. This creates a list of objects in the bucket and creates a collision of objects and the traversal of the objects also becomes non-efficient.
  * To prevent Hash Collision we use LinkedHashMap<>();
 
@@ -97,10 +97,10 @@ public class L_Hash_Map {
 	  
 	        // convert to ArrayList of key set
 	        //we are just storing the key set in an ArrayList and reversing that & then with respect to the keys and it's orientation we will print the values.
-	        ArrayList<String> alKeys
-	            = new ArrayList<String>(lhm.keySet());
+	        ArrayList<String> alKeys = new ArrayList<String>(lhm.keySet());
 	  
 	        // reversing the order of keys
+	        //same can be used to sort a hashmap
 	        Collections.reverse(alKeys);
 	  
 	        // iterate LHM using reverse order of keys
